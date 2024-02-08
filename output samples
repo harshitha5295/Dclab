@@ -1,0 +1,27 @@
+Ring alg:
+./program_name [self_id] [start_at] [next_id]
+
+gcc ring.c -o ring.out
+./ring.out 8000 1 8001
+./ring.out 8001 0 8002
+./ring.out 8002 0 8003
+./ring.out 8003 0 8000
+
+Bully alg:
+./election_algorithm [self_id] [num_processes] [process1] [process2] ... [processN] [start_at]
+
+gcc bully.c -o bully.out
+./bully.out 5 7 1 2 3 4 6 7 1
+
+probe alg:
+./deadlock_detection 1 1 3 2 3 4
+In this example:
+Node ID is 1.
+Initiation flag is 1 (indicating it should start the probing process).
+There are 3 edges.
+The node is connected to nodes 2, 3, and 4.
+
+gcc probe.c -o probe.out
+./probe.out 8001 1 1 8003
+./probe.out 8002 0 2 8004 8001
+./probe.out 8003 0 2 8005 8002
